@@ -1,0 +1,7 @@
+snippet togg "toggle keymap for a variable" b
+nnoremap ${1:<F11>${2:mapping}} :let ${3:g:} = ! $3 <bar> echo '$3 toggled to: '.$3<CR>
+endsnippet
+
+snippet rcsrc "sources a rc file in vim rc framework" b
+call Src('${2:rc/${1:file}.vim}')
+endsnippet
