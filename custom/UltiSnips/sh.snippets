@@ -76,6 +76,7 @@ endsnippet
 snippet prtv "printf template" i
 printf '$2${1:%s}\n' "$${3:var}"
 endsnippet
+
 snippet prtq "printf template quoted" i
 printf "$2${1:%s}\\\\n" "$${3:var}"
 endsnippet
@@ -164,3 +165,24 @@ snippet tsb "invoke tsb, e.g. from within a script. default flag: barebone stdli
 eval "$(tsb ${1:-S})"
 endsnippet
 
+snippet modf "module function" b
+${1:modname}() {
+	local context="\$1"
+	getmodeval -c "$context" "$(getmod --modname "$1")" "$@"
+}
+endsnippet
+
+snippet addrec "add recursive shellenv entry" b
+shellenv_add_recursive_entry ${1:"./"} shellenv_${2:interactive} "$mod_${3:catkin}_root"
+endsnippet
+
+
+snippet comp "composure metadata" b
+author 'Simon Leischnig'
+about '$1'
+param '$2'
+example ''
+group '$3'
+helppath ''
+url ''
+endsnippet
